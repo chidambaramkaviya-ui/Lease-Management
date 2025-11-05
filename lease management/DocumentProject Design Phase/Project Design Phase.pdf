@@ -1,0 +1,121 @@
+
+
+## 🧩 **Lease Management System – Design Phase**
+
+### **1️⃣ Purpose of the Design Phase**
+
+The **Design Phase** transforms the ideas and requirements identified in the Ideation Phase into a **structured technical plan**.
+It defines **how** the system will look, function, and interact — serving as a **blueprint** for developers to build the system.
+
+---
+
+### **2️⃣ Design Objectives**
+
+* Convert user requirements into a logical and physical system design
+* Define the system’s architecture, data flow, and database structure
+* Create user interface (UI) and user experience (UX) layouts
+* Ensure scalability, security, and maintainability in the design
+
+---
+
+### **3️⃣ System Architecture**
+
+**Architecture Type:** *Three-Tier Architecture*
+
+| Layer                  | Description                             | Example                                                  |
+| ---------------------- | --------------------------------------- | -------------------------------------------------------- |
+| **Presentation Layer** | Handles user interface and interactions | Salesforce Lightning pages / Web UI                      |
+| **Application Layer**  | Contains business logic and workflows   | Apex classes, triggers, and validation rules             |
+| **Database Layer**     | Stores and manages lease-related data   | Salesforce objects like Property, Tenant, Lease, Payment |
+
+This separation ensures **modularity**, **security**, and **easy maintenance**.
+
+---
+
+### **4️⃣ Data Flow Diagram (DFD – Level 0 & 1)**
+
+#### **DFD – Level 0**
+
+Represents the overall system interaction.
+
+**Entities:**
+
+* Tenant
+* Property Owner
+* System Database
+
+**Process:**
+
+* Tenants send lease data → System stores lease → Owner reviews & manages
+
+#### **DFD – Level 1**
+
+Shows internal system flow:
+
+1. User inputs lease details
+2. System validates and stores them in the database
+3. Notifications triggered for payment and renewal
+4. Reports generated and displayed on dashboard
+
+---
+
+### **5️⃣ Entity–Relationship (ER) Diagram**
+
+**Entities and Attributes:**
+
+| Entity          | Attributes                                                          |
+| --------------- | ------------------------------------------------------------------- |
+| **Tenant**      | Tenant_ID, Name, Email, Phone, Address                              |
+| **Property**    | Property_ID, Name, Location, Type                                   |
+| **Lease**       | Lease_ID, Start_Date, End_Date, Rent_Amount, Property_ID, Tenant_ID |
+| **Payment**     | Payment_ID, Lease_ID, Amount, Date, Status                          |
+| **Maintenance** | Maintenance_ID, Lease_ID, Description, Status                       |
+
+**Relationships:**
+
+* One **Tenant** can have multiple **Leases**
+* One **Property** can have multiple **Leases**
+* Each **Lease** can have multiple **Payments**
+* Each **Lease** can have multiple **Maintenance Requests**
+
+---
+
+### **6️⃣ User Interface (UI) Design**
+
+**Modules and Layout:**
+
+* **Dashboard:** Summary of leases, payments, and maintenance requests
+* **Lease Management Page:** Create, edit, and view lease details
+* **Tenant Module:** Manage tenant profiles
+* **Property Module:** Manage property details
+* **Payment Module:** Record and track rent payments
+* **Reports Page:** Generate lease and payment reports
+
+UI designed to be **clean, simple, and responsive** for both admin and tenants.
+
+---
+
+### **7️⃣ Security Design**
+
+* User authentication and role-based access control
+* Data encryption for sensitive details (e.g., lease documents)
+* Validation rules to prevent invalid data entries
+* Secure APIs for integration
+
+---
+
+### **8️⃣ Design Tools Used**
+
+* **Salesforce Object Manager** – for entity design
+* **Lucidchart / Draw.io** – for DFD and ER diagrams
+* **Figma / Salesforce Lightning App Builder** – for UI mockups
+
+---
+
+### **9️⃣ Expected Output**
+
+A fully defined **technical design document** ready for development that ensures:
+
+* Smooth workflow automation
+* Secure data management
+* Easy-to-use interface for tenants and landlor
